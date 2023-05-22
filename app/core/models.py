@@ -25,6 +25,15 @@ class UserManager(BaseUserManager):
 
         return user
 
+    def create_superuser(self, email, password):
+        """Creating and returning a new superuser."""
+        return self.create_user(
+            email=email,
+            password=password,
+            is_superuser=True,
+            is_staff=True
+        )
+
 
 class User(AbstractBaseUser, PermissionsMixin):
     """User in the system."""
