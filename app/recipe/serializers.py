@@ -7,9 +7,12 @@ from core.models import Recipe
 class RecipeSerializer(serializers.ModelSerializer):
     """Serializer for Recipes."""
 
+    # id = serializers.IntegerField()
+    description = serializers.CharField(required=False, max_length=2500)
+
     class Meta:
         model = Recipe
-        fields = ['id', 'title', 'time_minutes', 'price', 'link']
+        fields = ['id', 'title', 'description', 'time_minutes', 'price', 'link']
         read_only_fields = ['id']
 
 
